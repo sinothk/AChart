@@ -40,4 +40,20 @@ public class ChartDemoMainActivity extends AppCompatActivity {
     public void pyramidChartEvent(View view) {
         startActivity(new Intent(ChartDemoMainActivity.this, PyramidActivity.class));
     }
+
+    public void windSpeedEvent(View view) {
+        startActivity(new Intent(ChartDemoMainActivity.this, WindSpeedActivity.class));
+    }
+
+    public void pertChartEvent(View view) {
+        startActivity(new Intent(ChartDemoMainActivity.this, PertChartActivity.class));
+    }
+
+    public void verticalChartEvent(View view) {
+        startActivity(new Intent(ChartDemoMainActivity.this, VerticalChartActivity.class));
+    }
+
+    public void circularGaugeEvent(View view) {
+        startActivity(new Intent(ChartDemoMainActivity.this, CircularGaugeActivity.class));
+    }
 }

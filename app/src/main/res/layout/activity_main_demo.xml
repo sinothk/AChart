@@ -59,6 +59,34 @@
             android:onClick="pyramidChartEvent"
             android:text="金字塔图" />
 
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:onClick="windSpeedEvent"
+            android:text="气流速度" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:onClick="pertChartEvent"
+            android:text="计划评审技术" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:onClick="verticalChartEvent"
+            android:text="垂直图表" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:onClick="circularGaugeEvent"
+            android:text="圆形压力计" />
+
     </LinearLayout>
 
 

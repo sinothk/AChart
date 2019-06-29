@@ -28,6 +28,10 @@
         <activity android:name=".RadarChartActivity" />
         <activity android:name=".FunnelChartActivity" />
         <activity android:name=".PyramidActivity" />
+        <activity android:name=".WindSpeedActivity" />
+        <activity android:name=".PertChartActivity" />
+        <activity android:name=".VerticalChartActivity" />
+        <activity android:name=".CircularGaugeActivity" />
 
     </application>
 
