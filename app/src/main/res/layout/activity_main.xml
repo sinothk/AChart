@@ -17,6 +17,12 @@
             android:onClick="pieChartEvent"
             android:text="饼  图" />
 
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:onClick="columnChartEvent"
+            android:text="柱状图" />
     </LinearLayout>
 
 

@@ -16,4 +16,8 @@ public class ChartDemoMainActivity extends AppCompatActivity {
     public void pieChartEvent(View view) {
         startActivity(new Intent(ChartDemoMainActivity.this, PieChartActivity.class));
     }
+
+    public void columnChartEvent(View view) {
+        startActivity(new Intent(ChartDemoMainActivity.this, ColumnChartActivity.class));
+    }
 }
