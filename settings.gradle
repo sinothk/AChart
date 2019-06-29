@@ -1,1 +1,1 @@
-include ':app', ':AllChart'
+include ':app', ':AllChart', ':LibAnychart'
