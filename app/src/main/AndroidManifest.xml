@@ -22,6 +22,12 @@
 
         <activity android:name=".PieChartActivity" />
         <activity android:name=".ColumnChartActivity" />
+        <activity android:name=".LineChartActivity" />
+        <activity android:name=".PolarChartActivity" />
+        <activity android:name=".ParetoChartActivity" />
+        <activity android:name=".RadarChartActivity" />
+        <activity android:name=".FunnelChartActivity" />
+        <activity android:name=".PyramidActivity" />
 
     </application>
 
