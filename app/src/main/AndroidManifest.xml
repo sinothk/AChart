@@ -12,7 +12,7 @@
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
 
-        <activity android:name=".ChartDemoMainActivity">
+        <activity android:name=".AnyChartDemoMainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -33,6 +33,10 @@
         <activity android:name=".VerticalChartActivity" />
         <activity android:name=".CircularGaugeActivity" />
         <activity android:name=".BarChartActivity" />
+        <activity android:name=".OXViewDemo.charts.VerticalBarActivity" />
+        <activity android:name=".OXViewDemo.OXViewDemoMainActivity" />
+        <activity android:name=".OXViewDemo.charts.HorizontalBarActivity" />
+        <activity android:name=".OXViewDemo.charts.PieActivity" />
 
     </application>
 
