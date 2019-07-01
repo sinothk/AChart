@@ -32,6 +32,7 @@
         <activity android:name=".PertChartActivity" />
         <activity android:name=".VerticalChartActivity" />
         <activity android:name=".CircularGaugeActivity" />
+        <activity android:name=".BarChartActivity" />
 
     </application>
 

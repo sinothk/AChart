@@ -56,4 +56,8 @@ public class ChartDemoMainActivity extends AppCompatActivity {
     public void circularGaugeEvent(View view) {
         startActivity(new Intent(ChartDemoMainActivity.this, CircularGaugeActivity.class));
     }
+
+    public void barChart1Event(View view) {
+        startActivity(new Intent(ChartDemoMainActivity.this, BarChartActivity.class));
+    }
 }

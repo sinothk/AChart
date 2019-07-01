@@ -87,6 +87,13 @@
             android:onClick="circularGaugeEvent"
             android:text="圆形压力计" />
 
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:onClick="barChart1Event"
+            android:text="横向柱状图1" />
+
     </LinearLayout>
 
 
