@@ -10,7 +10,10 @@ import com.sinothk.chart.demo.OXViewDemo.adapter.CommandRecyclerAdapter;
 import com.sinothk.chart.demo.OXViewDemo.adapter.ViewHolder;
 import com.sinothk.chart.demo.OXViewDemo.charts.HorizontalBarActivity;
 import com.sinothk.chart.demo.OXViewDemo.charts.PieActivity;
+import com.sinothk.chart.demo.OXViewDemo.charts.ProgressPieActivity;
+import com.sinothk.chart.demo.OXViewDemo.charts.RoseActivity;
 import com.sinothk.chart.demo.OXViewDemo.charts.VerticalBarActivity;
+import com.sinothk.chart.demo.OXViewDemo.charts.XmStockChartActivity;
 import com.sinothk.chart.demo.R;
 
 import java.util.ArrayList;
@@ -56,24 +59,24 @@ public class OXViewDemoMainActivity extends AppCompatActivity {
             @Override
             public void onItemClick(String str, int position) {
                 switch (position) {
-//                    case 0:
-//                        startActivity(new Intent(MainActivity.this, RoseActivity.class));
-//                        break;
+                    case 0:
+                        startActivity(new Intent(OXViewDemoMainActivity.this, RoseActivity.class));
+                        break;
                     case 1:
                         startActivity(new Intent(OXViewDemoMainActivity.this, PieActivity.class));
                         break;
-//                    case 2:
-//                        startActivity(new Intent(MainActivity.this, ProgressPieActivity.class));
-//                        break;
+                    case 2:
+                        startActivity(new Intent(OXViewDemoMainActivity.this, ProgressPieActivity.class));
+                        break;
                     case 3:
                         startActivity(new Intent(OXViewDemoMainActivity.this, VerticalBarActivity.class));
                         break;
                     case 4:
                         startActivity(new Intent(OXViewDemoMainActivity.this, HorizontalBarActivity.class));
                         break;
-//                    case 5:
-//                        startActivity(new Intent(MainActivity.this, XmStockChartActivity.class));
-//                        break;
+                    case 5:
+                        startActivity(new Intent(OXViewDemoMainActivity.this, XmStockChartActivity.class));
+                        break;
 //                    case 6:
 //                        startActivity(new Intent(MainActivity.this, XmStockChartActivity1.class));
 //                        break;

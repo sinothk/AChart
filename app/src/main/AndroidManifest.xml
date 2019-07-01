@@ -37,6 +37,9 @@
         <activity android:name=".OXViewDemo.OXViewDemoMainActivity" />
         <activity android:name=".OXViewDemo.charts.HorizontalBarActivity" />
         <activity android:name=".OXViewDemo.charts.PieActivity" />
+        <activity android:name=".OXViewDemo.charts.XmStockChartActivity" />
+        <activity android:name=".OXViewDemo.charts.ProgressPieActivity" />
+        <activity android:name=".OXViewDemo.charts.RoseActivity" />
 
     </application>
 
