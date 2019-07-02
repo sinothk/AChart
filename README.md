@@ -14,5 +14,5 @@ AChart
 # Step 2. Add the dependency
 
     dependencies {
-            implementation 'com.github.sinothk.AChart:AllChart:1.0.0701'
+            implementation 'com.github.sinothk.AChart:AllChart:1.0.0702'
     }
