@@ -1,4 +1,4 @@
-package com.sinothk.chart.demo.OXViewDemo.bean;
+package com.sinothk.chart.demo.ox.bean;
 
 
 /**

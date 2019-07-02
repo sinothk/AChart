@@ -1,4 +1,4 @@
-package com.sinothk.chart.demo.OXViewDemo.charts;
+package com.sinothk.chart.demo.ox.charts;
 
 import android.graphics.Color;
 import android.os.Bundle;

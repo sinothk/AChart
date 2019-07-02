@@ -5,7 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 
-import com.sinothk.chart.demo.OXViewDemo.OXViewDemoMainActivity;
+import com.sinothk.chart.demo.ox.OXViewDemoMainActivity;
 
 public class AnyChartDemoMainActivity extends AppCompatActivity {
 

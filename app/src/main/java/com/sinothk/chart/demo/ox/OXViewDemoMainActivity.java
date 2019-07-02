@@ -1,4 +1,4 @@
-package com.sinothk.chart.demo.OXViewDemo;
+package com.sinothk.chart.demo.ox;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -6,14 +6,14 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
-import com.sinothk.chart.demo.OXViewDemo.adapter.CommandRecyclerAdapter;
-import com.sinothk.chart.demo.OXViewDemo.adapter.ViewHolder;
-import com.sinothk.chart.demo.OXViewDemo.charts.HorizontalBarActivity;
-import com.sinothk.chart.demo.OXViewDemo.charts.PieActivity;
-import com.sinothk.chart.demo.OXViewDemo.charts.ProgressPieActivity;
-import com.sinothk.chart.demo.OXViewDemo.charts.RoseActivity;
-import com.sinothk.chart.demo.OXViewDemo.charts.VerticalBarActivity;
-import com.sinothk.chart.demo.OXViewDemo.charts.XmStockChartActivity;
+import com.sinothk.chart.demo.ox.adapter.CommandRecyclerAdapter;
+import com.sinothk.chart.demo.ox.adapter.ViewHolder;
+import com.sinothk.chart.demo.ox.charts.HorizontalBarActivity;
+import com.sinothk.chart.demo.ox.charts.PieActivity;
+import com.sinothk.chart.demo.ox.charts.ProgressPieActivity;
+import com.sinothk.chart.demo.ox.charts.RoseActivity;
+import com.sinothk.chart.demo.ox.charts.VerticalBarActivity;
+import com.sinothk.chart.demo.ox.charts.XmStockChartActivity;
 import com.sinothk.chart.demo.R;
 
 import java.util.ArrayList;

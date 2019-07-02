@@ -1,4 +1,4 @@
-package com.sinothk.chart.demo.OXViewDemo.adapter;
+package com.sinothk.chart.demo.ox.adapter;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;

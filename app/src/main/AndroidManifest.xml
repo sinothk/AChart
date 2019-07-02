@@ -33,13 +33,14 @@
         <activity android:name=".VerticalChartActivity" />
         <activity android:name=".CircularGaugeActivity" />
         <activity android:name=".BarChartActivity" />
-        <activity android:name=".OXViewDemo.charts.VerticalBarActivity" />
-        <activity android:name=".OXViewDemo.OXViewDemoMainActivity" />
-        <activity android:name=".OXViewDemo.charts.HorizontalBarActivity" />
-        <activity android:name=".OXViewDemo.charts.PieActivity" />
-        <activity android:name=".OXViewDemo.charts.XmStockChartActivity" />
-        <activity android:name=".OXViewDemo.charts.ProgressPieActivity" />
-        <activity android:name=".OXViewDemo.charts.RoseActivity" />
+
+        <activity android:name=".ox.OXViewDemoMainActivity" />
+        <activity android:name=".ox.charts.HorizontalBarActivity" />
+        <activity android:name=".ox.charts.PieActivity" />
+        <activity android:name=".ox.charts.XmStockChartActivity" />
+        <activity android:name=".ox.charts.ProgressPieActivity" />
+        <activity android:name=".ox.charts.RoseActivity" />
+        <activity android:name=".ox.charts.VerticalBarActivity" />
 
     </application>
 

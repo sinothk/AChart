@@ -1,4 +1,4 @@
-package com.sinothk.chart.demo.OXViewDemo.charts;
+package com.sinothk.chart.demo.ox.charts;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -6,7 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import com.openxu.cview.chart.bean.ChartLable;
 import com.openxu.cview.chart.piechart.PieChartLayout;
 import com.openxu.utils.DensityUtil;
-import com.sinothk.chart.demo.OXViewDemo.bean.PieBean;
+import com.sinothk.chart.demo.ox.bean.PieBean;
 import com.sinothk.chart.demo.R;
 
 import java.util.ArrayList;
