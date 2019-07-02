@@ -6,6 +6,7 @@ import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.PointF;
 import android.graphics.RectF;
+import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
@@ -41,7 +42,9 @@ public class PieChartLableView extends BaseChart {
     private int top;               //绘制的y坐标
     private int oneLableHeight;    //右侧标签单个高度,需要计算
 
-    /**设置的属性*/
+    /**
+     * 设置的属性
+     */
     private int rectW;
     private int rectH;
     private int rectRaidus;     //矩形圆角
@@ -53,13 +56,17 @@ public class PieChartLableView extends BaseChart {
 
     private PieChartLayout.TAG_TYPE tagType;   //TAG展示类型
     private PieChartLayout.TAG_MODUL tagModul;   //TAG展示位置
+    private PieChartLayout.TAG_DATA_TYPE tagDataType;   //TAG数据类型
+
 
     public PieChartLableView(Context context) {
         super(context, null);
     }
+
     public PieChartLableView(Context context, AttributeSet attrs) {
         super(context, attrs, 0);
     }
+
     public PieChartLableView(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
     }
@@ -70,6 +77,7 @@ public class PieChartLableView extends BaseChart {
         dataList = new ArrayList<>();
         setClickable(true);
     }
+
     /***********************************设置属性set方法**********************************/
     public void setArrColorRgb(int[][] arrColorRgb) {
         this.arrColorRgb = arrColorRgb;
@@ -78,12 +86,15 @@ public class PieChartLableView extends BaseChart {
     public void setTextSize(int textSize) {
         this.textSize = textSize;
     }
+
     public void setTextColor(int textColor) {
         this.textColor = textColor;
     }
+
     public void setShowZeroPart(boolean showZeroPart) {
         this.showZeroPart = showZeroPart;
     }
+
     public void setRectW(int rectW) {
         this.rectW = rectW;
     }
@@ -100,6 +111,10 @@ public class PieChartLableView extends BaseChart {
         this.tagType = tagType;
     }
 
+    public void setTagDataType(PieChartLayout.TAG_DATA_TYPE tagDataType) {
+        this.tagDataType = tagDataType;
+    }
+
     public void setTagModul(PieChartLayout.TAG_MODUL tagModul) {
         this.tagModul = tagModul;
     }
@@ -111,6 +126,7 @@ public class PieChartLableView extends BaseChart {
     public void setLeftSpace(int leftSpace) {
         this.leftSpace = leftSpace;
     }
+
     /***********************************设置属性set方法over**********************************/
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
@@ -119,30 +135,30 @@ public class PieChartLableView extends BaseChart {
         int widthSize = View.MeasureSpec.getSize(widthMeasureSpec);
         int heightMode = View.MeasureSpec.getMode(heightMeasureSpec);
         int heightSize = View.MeasureSpec.getSize(heightMeasureSpec);
-        centerPoint = new PointF(widthSize/2, heightSize/2);
-        rectLable = new RectF(0,0,widthSize,  heightSize);
+        centerPoint = new PointF(widthSize / 2, heightSize / 2);
+        rectLable = new RectF(0, 0, widthSize, heightSize);
         setMeasuredDimension(widthSize, heightSize);
         evaluatorLable();
     }
 
     @Override
     public void dispatchTouchEvent1(MotionEvent event) {
-        int move = (int)(event.getY() - lastTouchPoint.y);
-        if(top + mMoveLen <= minTopPointY){
-            if(move<0){
+        int move = (int) (event.getY() - lastTouchPoint.y);
+        if (top + mMoveLen <= minTopPointY) {
+            if (move < 0) {
                 LogUtil.e(TAG, "已经到最下面了，还往上滑，不行");
                 getParent().requestDisallowInterceptTouchEvent(false);
-            }else{
+            } else {
                 getParent().requestDisallowInterceptTouchEvent(true);
             }
-        }else if(top + mMoveLen>=rectSpace){
-            if(move>0){
+        } else if (top + mMoveLen >= rectSpace) {
+            if (move > 0) {
                 LogUtil.w(TAG, "已经划到头了，还往下滑，不行");
                 getParent().requestDisallowInterceptTouchEvent(false);
-            }else{
+            } else {
                 getParent().requestDisallowInterceptTouchEvent(true);
             }
-        }else{
+        } else {
             //请求所有父控件及祖宗控件不要拦截事件
             getParent().requestDisallowInterceptTouchEvent(true);
             LogUtil.i(TAG, "正常请求事件");
@@ -151,11 +167,11 @@ public class PieChartLableView extends BaseChart {
 
     @Override
     protected void evaluatorFling(float fling) {
-        if(top + mMoveLen + fling <= minTopPointY){
-            mMoveLen = minTopPointY-rectSpace;
-        }else if(top + mMoveLen+ fling>=rectSpace){
+        if (top + mMoveLen + fling <= minTopPointY) {
+            mMoveLen = minTopPointY - rectSpace;
+        } else if (top + mMoveLen + fling >= rectSpace) {
             mMoveLen = 0;
-        } else{
+        } else {
             mMoveLen += fling;
         }
     }
@@ -163,98 +179,134 @@ public class PieChartLableView extends BaseChart {
     /**
      * 设置数据
      */
-    public void setData(List<PieChartBean> dataList){
+    public void setData(List<PieChartBean> dataList) {
         this.dataList.clear();
-        if(dataList!=null)
+        if (dataList != null)
             this.dataList.addAll(dataList);
+
+        for (PieChartBean bean : this.dataList) {
+            total += bean.getNum();
+        }
+
         evaluatorLable();
         startDraw = false;
         invalidate();
     }
-    /**计算右侧标签相关坐标值*/
-    private void evaluatorLable(){
+
+    /**
+     * 计算右侧标签相关坐标值
+     */
+    private void evaluatorLable() {
         paintLabel.setTextSize(textSize);
         oneLableHeight = (int) FontUtil.getFontHeight(paintLabel);
         //字和矩形中高度的较大值
-        oneLableHeight = oneLableHeight>rectH?oneLableHeight:rectH;
-        int allHeight = 0 ;
+        oneLableHeight = oneLableHeight > rectH ? oneLableHeight : rectH;
+        int allHeight = 0;
         //总高度
-        for(PieChartBean bean : dataList){
-            if(bean.getNum() == 0 && !showZeroPart){
+        for (PieChartBean bean : dataList) {
+            if (bean.getNum() == 0 && !showZeroPart) {
                 continue;
             }
-            allHeight += oneLableHeight+rectSpace;
+            allHeight += oneLableHeight + rectSpace;
         }
-        if(allHeight>0)
+        if (allHeight > 0)
             allHeight -= rectSpace;
 
 //        int allHeight = (oneLableHeight+rectSpace)*dataList.size() - rectSpace;
-        int contentH = getMeasuredHeight() - rectSpace*2;
-        touchEnable = allHeight>contentH;
-        if(touchEnable){
+        int contentH = getMeasuredHeight() - rectSpace * 2;
+        touchEnable = allHeight > contentH;
+        if (touchEnable) {
             //超出总高度了
             top = rectSpace;
             minTopPointY = -allHeight - rectSpace + getMeasuredHeight();
-            if(debug)
-            LogUtil.i(TAG, "边界"+minTopPointY+"     "+getMeasuredHeight());
-        }else{
-            top = (getMeasuredHeight()-allHeight)/2;
+            if (debug)
+                LogUtil.i(TAG, "边界" + minTopPointY + "     " + getMeasuredHeight());
+        } else {
+            top = (getMeasuredHeight() - allHeight) / 2;
         }
     }
 
-    /**绘制图表基本框架*/
+    /**
+     * 绘制图表基本框架
+     */
     @Override
     public void drawDefult(Canvas canvas) {
     }
-    /**绘制debug辅助线*/
+
+    /**
+     * 绘制debug辅助线
+     */
     @Override
     public void drawDebug(Canvas canvas) {
         super.drawDebug(canvas);
     }
-    /**绘制图表*/
+
+    /**
+     * 绘制图表
+     */
     @Override
     public void drawChart(Canvas canvas) {
 
         int topY = top + mMoveLen;
 
         paintLabel.setTextSize(textSize);
-        int lableH =(int) FontUtil.getFontHeight(paintLabel);
-        int lableL =(int) FontUtil.getFontLeading(paintLabel);
+        int lableH = (int) FontUtil.getFontHeight(paintLabel);
+        int lableL = (int) FontUtil.getFontLeading(paintLabel);
 
         paint.setStyle(Paint.Style.FILL);
 
         int index = -1;
-        for(int i = 0; i < dataList.size(); i++){
+        for (int i = 0; i < dataList.size(); i++) {
             PieChartBean bean = dataList.get(i);
-            if(bean.getNum() == 0 && !showZeroPart){
+            if (bean.getNum() == 0 && !showZeroPart) {
                 continue;
             }
             index++;
-            paint.setARGB(255, arrColorRgb[index%arrColorRgb.length][0], arrColorRgb[index%arrColorRgb.length][1], arrColorRgb[index%arrColorRgb.length][2]);
-            paintLabel.setARGB(255, arrColorRgb[index%arrColorRgb.length][0], arrColorRgb[index%arrColorRgb.length][1], arrColorRgb[index%arrColorRgb.length][2]);
+            paint.setARGB(255, arrColorRgb[index % arrColorRgb.length][0], arrColorRgb[index % arrColorRgb.length][1], arrColorRgb[index % arrColorRgb.length][2]);
+            paintLabel.setARGB(255, arrColorRgb[index % arrColorRgb.length][0], arrColorRgb[index % arrColorRgb.length][1], arrColorRgb[index % arrColorRgb.length][2]);
 
-            int rectTop = topY+(oneLableHeight-rectH)/2;
-            RectF rect = new RectF(leftSpace, rectTop, leftSpace+rectW, rectTop+rectH);
+            int rectTop = topY + (oneLableHeight - rectH) / 2;
+            RectF rect = new RectF(leftSpace, rectTop, leftSpace + rectW, rectTop + rectH);
             canvas.drawRoundRect(rect, rectRaidus, rectRaidus, paint);
 
 
-            if(textColor!=0) {
+            if (textColor != 0) {
                 paintLabel.setColor(textColor);
             }
-            rectTop = topY+(oneLableHeight-lableH)/2;
-            canvas.drawText(bean.getName(), leftSpace+rectW+leftSpace , rectTop+lableL , paintLabel);
+            rectTop = topY + (oneLableHeight - lableH) / 2;
+            canvas.drawText(bean.getName(), leftSpace + rectW + leftSpace, rectTop + lableL, paintLabel);
             float textW = FontUtil.getFontlength(paintLabel, bean.getName());
+
             /**5、绘制指示标签*/
-            if(MODUL_LABLE == tagModul){
+            if (MODUL_LABLE == tagModul) {
                 String tagText = "";
+
                 if (tagType == PieChartLayout.TAG_TYPE.TYPE_NUM) {
-                    tagText = bean.getNum() + "";
+
+                    String unitStr = TextUtils.isEmpty(bean.getUnit()) ? "" : bean.getUnit();
+
+                    String data = "";
+                    if (tagDataType == PieChartLayout.TAG_DATA_TYPE.INT) {
+                        data = (int) bean.getNum() + "";
+                    }else if(tagDataType == PieChartLayout.TAG_DATA_TYPE.FLOAT){
+                        data = bean.getNum() + "";
+                    }else {
+                        data = bean.getNum() + "";
+                    }
+
+                    tagText = data + unitStr;
+
+                    //  tagText = bean.getNum() + unitStr;
+
                 } else if (tagType == PieChartLayout.TAG_TYPE.TYPE_PERCENT) {
                     DecimalFormat decimalFormat = new DecimalFormat("0.0%");
-                    tagText = decimalFormat.format(((float) bean.getNum() / (float) total));
+
+                    double val = (float) bean.getNum() / (float) total;
+                    tagText = decimalFormat.format(val);
                 }
+
                 float tagW = FontUtil.getFontlength(paintLabel, tagText);
-                canvas.drawText(tagText, getMeasuredWidth()-tagW- DensityUtil.dip2px(getContext(),3), rectTop+lableL , paintLabel);
+                canvas.drawText(tagText, getMeasuredWidth() - tagW - DensityUtil.dip2px(getContext(), 3), rectTop + lableL, paintLabel);
 
             /*    DashPathEffect dashPathEffect = new DashPathEffect(new float[]{8,10,8,10}, 0);
                 paint.setColor(Color.RED);
@@ -270,12 +322,18 @@ public class PieChartLableView extends BaseChart {
         }
 
     }
-    /**创建动画*/
+
+    /**
+     * 创建动画
+     */
     @Override
     protected ValueAnimator initAnim() {
         return null;
     }
-    /**动画值变化之后计算数据*/
+
+    /**
+     * 动画值变化之后计算数据
+     */
     @Override
     protected void evaluatorData(ValueAnimator animation) {
 

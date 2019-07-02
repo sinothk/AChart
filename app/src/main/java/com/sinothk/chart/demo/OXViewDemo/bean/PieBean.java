@@ -9,23 +9,23 @@ package com.sinothk.chart.demo.OXViewDemo.bean;
  * description : 请添加类说明
  */
 public class PieBean {
-    private float Numner;
+    private float Number;
     private String Name;
 
     public PieBean() {
     }
 
-    public PieBean(float Numner, String Name) {
-        this.Numner = Numner;
+    public PieBean(float Number, String Name) {
+        this.Number = Number;
         this.Name = Name;
     }
 
-    public float getNumner() {
-        return Numner;
+    public float getNumber() {
+        return Number;
     }
 
-    public void setNumner(float numner) {
-        Numner = numner;
+    public void setNumber(float number) {
+        Number = number;
     }
 
     public String getName() {

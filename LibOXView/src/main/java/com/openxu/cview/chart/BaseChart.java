@@ -128,9 +128,11 @@ public abstract class BaseChart extends View {
     }
 
     public abstract void init(Context context, AttributeSet attrs, int defStyleAttr);
+
     public int getTotal() {
         return total;
     }
+
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);

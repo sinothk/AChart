@@ -17,6 +17,7 @@ public class PieChartBean {
 
     private float num;
     private String name;
+    private String unit;
 
     //触摸相关
     private Region region;     //扇形区域--用于判断手指触摸点是否在此范围
@@ -129,5 +130,13 @@ public class PieChartBean {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getUnit() {
+        return unit;
+    }
+
+    public void setUnit(String unit) {
+        this.unit = unit;
     }
 }

@@ -49,6 +49,8 @@ public class PieChart extends BaseChart {
 
     private PieChartLayout.TAG_TYPE tagType;   //TAG展示类型
     private PieChartLayout.TAG_MODUL tagModul;   //TAG展示位置
+    private PieChartLayout.TAG_DATA_TYPE tagDataType;   //TAG数据类型
+
     private int tagTextSize;   //tag文字大小
     private int tagTextColor;
 
@@ -144,6 +146,11 @@ public class PieChart extends BaseChart {
 
     public void setTagModul(PieChartLayout.TAG_MODUL tagModul) {
         this.tagModul = tagModul;
+        initSome();
+    }
+
+    public void setTagDataType(PieChartLayout.TAG_DATA_TYPE tagDataType) {
+        this.tagDataType = tagDataType;
         initSome();
     }
 
