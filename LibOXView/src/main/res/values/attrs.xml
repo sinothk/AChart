@@ -21,7 +21,7 @@
         <attr name="centerRowSpace" format="dimension" /> <!--中间箭头和文字的距离-->
     </declare-styleable>
     <!--定义theme可配置style-->
-    <attr name="TitleViewStyle" format="reference"></attr>
+    <attr name="TitleViewStyle" format="reference"/>
 
 
     <!-- "自定义标题视图"属性 -->
