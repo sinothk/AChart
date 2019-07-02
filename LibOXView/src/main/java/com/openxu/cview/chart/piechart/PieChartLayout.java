@@ -84,31 +84,54 @@ public class PieChartLayout extends LinearLayout {
         return result;
     }
 
+//    //RGB颜色数组
+//    private int arrColorRgb[][] = {
+//            {113, 137, 230},   //    UIColorFromRGB(0xD95F5B),
+//            {217, 95, 91},     //    UIColorFromRGB(0x7189E6),
+//            {90, 185, 199},    //    UIColorFromRGB(0x5AB9C7),
+//            {170, 150, 213},   //   UIColorFromRGB(0xB096D5),
+//            {107, 186, 151},   //    UIColorFromRGB(0x6BBA97),
+//            {91, 164, 231},    //    UIColorFromRGB(0x5BA4E7),
+//            {220, 170, 97},//    UIColorFromRGB(0xDCAA61),
+//            {125, 171, 88},//    UIColorFromRGB(0x7DAB58),
+//            {233, 200, 88},//    UIColorFromRGB(0xE9C858),
+//            {213, 150, 196},//    UIColorFromRGB(0xd596c4)
+//            {220, 127, 104},//    UIColorFromRGB(0xDC7F68),
+//
+//
+////            {86, 138, 220},   //    UIColorFromRGB(0x568ADC),
+////            {112, 173, 71}, //UIColorFromRGB(0x70AD47)
+////            {219, 69, 40}, // UIColorFromRGB(0xDB4528)
+////            {255, 193, 2},  // UIColorFromRGB(0xFFC102)
+////            {242, 141, 2},  // UIColorFromRGB(0xF28D02)
+////            {41, 182, 180},  // UIColorFromRGB(0x29B6B4)
+////            {187, 107, 201},  // UIColorFromRGB(0xbb6bc9)
+////            {124, 117, 214},  // UIColorFromRGB(0x7c75d6)
+//    };
+
     //RGB颜色数组
     private int arrColorRgb[][] = {
-            {113, 137, 230},   //    UIColorFromRGB(0xD95F5B),
-            {217, 95, 91},     //    UIColorFromRGB(0x7189E6),
-            {90, 185, 199},    //    UIColorFromRGB(0x5AB9C7),
-            {170, 150, 213},   //   UIColorFromRGB(0xB096D5),
-            {107, 186, 151},   //    UIColorFromRGB(0x6BBA97),
-            {91, 164, 231},    //    UIColorFromRGB(0x5BA4E7),
-            {220, 170, 97},//    UIColorFromRGB(0xDCAA61),
-            {125, 171, 88},//    UIColorFromRGB(0x7DAB58),
+            {54, 167, 248},   //    UIColorFromRGB(0xD95F5B),
+            {255, 80, 77},     //    UIColorFromRGB(0x7189E6),
+            {255, 146, 0},    //    UIColorFromRGB(0x5AB9C7),
+            {255, 123, 121},   //   UIColorFromRGB(0xB096D5),
+            {15, 184, 175},   //    UIColorFromRGB(0x6BBA97),
+            {88, 217, 255},    //    UIColorFromRGB(0x5BA4E7),
+            {125, 115, 187},//    UIColorFromRGB(0xDCAA61),
+            {86, 226, 159},//    UIColorFromRGB(0x7DAB58),
             {233, 200, 88},//    UIColorFromRGB(0xE9C858),
             {213, 150, 196},//    UIColorFromRGB(0xd596c4)
             {220, 127, 104},//    UIColorFromRGB(0xDC7F68),
 
-
-//            {86, 138, 220},   //    UIColorFromRGB(0x568ADC),
-//            {112, 173, 71}, //UIColorFromRGB(0x70AD47)
-//            {219, 69, 40}, // UIColorFromRGB(0xDB4528)
-//            {255, 193, 2},  // UIColorFromRGB(0xFFC102)
-//            {242, 141, 2},  // UIColorFromRGB(0xF28D02)
-//            {41, 182, 180},  // UIColorFromRGB(0x29B6B4)
-//            {187, 107, 201},  // UIColorFromRGB(0xbb6bc9)
-//            {124, 117, 214},  // UIColorFromRGB(0x7c75d6)
+            {86, 138, 220},   //    UIColorFromRGB(0x568ADC),
+            {112, 173, 71}, //UIColorFromRGB(0x70AD47)
+            {219, 69, 40}, // UIColorFromRGB(0xDB4528)
+            {255, 193, 2},  // UIColorFromRGB(0xFFC102)
+            {242, 141, 2},  // UIColorFromRGB(0xF28D02)
+            {41, 182, 180},  // UIColorFromRGB(0x29B6B4)
+            {187, 107, 201},  // UIColorFromRGB(0xbb6bc9)
+            {124, 117, 214},  // UIColorFromRGB(0x7c75d6)
     };
-
 
     /**
      * tag类型
