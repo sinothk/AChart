@@ -26,6 +26,7 @@ public class CombineChartActivity extends AppCompatActivity implements View.OnCl
                 "0" + getString(R.string.degree_centigrade), "50" + getString(R.string.degree_centigrade)};
         rightYLabels1 = new String[]{"%0rh", "50%rh", "100%rh", "-50" + getString(R.string.degree_centigrade),
                 "0" + getString(R.string.degree_centigrade), "50" + getString(R.string.degree_centigrade)};
+
         List<BarChartBean> data = new ArrayList<>();
         data.add(new BarChartBean("7/1", 1003, 500, 600));
         data.add(new BarChartBean("7/2", 890, 456, 123));
