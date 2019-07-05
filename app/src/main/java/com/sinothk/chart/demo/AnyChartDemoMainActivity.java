@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 
+import com.chs.easychartwidget.EasyChartDemoMainActivity;
 import com.sinothk.chart.demo.ox.OXViewDemoMainActivity;
 
 public class AnyChartDemoMainActivity extends AppCompatActivity {
@@ -65,5 +66,9 @@ public class AnyChartDemoMainActivity extends AppCompatActivity {
 
     public void barChart1Event(View view) {
         startActivity(new Intent(AnyChartDemoMainActivity.this, BarChartActivity.class));
+    }
+
+    public void easyChartWidgetEvent(View view) {
+        startActivity(new Intent(AnyChartDemoMainActivity.this, EasyChartDemoMainActivity.class));
     }
 }

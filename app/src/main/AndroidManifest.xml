@@ -42,6 +42,14 @@
         <activity android:name=".ox.charts.RoseActivity" />
         <activity android:name=".ox.charts.VerticalBarActivity" />
 
+        <activity android:name="com.chs.easychartwidget.EasyChartDemoMainActivity" />
+        <activity android:name="com.chs.easychartwidget.activity.BarChartActivity" />
+        <activity android:name="com.chs.easychartwidget.activity.CombineChartActivity" />
+        <activity android:name="com.chs.easychartwidget.activity.HollowPieChartActivity" />
+        <activity android:name="com.chs.easychartwidget.activity.HollowPieChartNewActivity" />
+        <activity android:name="com.chs.easychartwidget.activity.LineChartActivity" />
+        <activity android:name="com.chs.easychartwidget.activity.PieChartActivity" />
+        <activity android:name="com.chs.easychartwidget.activity.ScaleActivity" />
     </application>
 
 </manifest>
