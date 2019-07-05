@@ -64,12 +64,13 @@ public class BarChartActivity extends AppCompatActivity {
         BarChartNew barChartNew2 = (BarChartNew) findViewById(R.id.chart_new_2);
 
         List<BarChartEntity> datas1 = new ArrayList<>();
-        datas1.add(new BarChartEntity("特种设备组", new Float[]{1003f, 500f, 600f, 45f, 99f}));
-        datas1.add(new BarChartEntity("暖通组", new Float[]{1003f, 500f, 600f, 45f, 99f}));
-        datas1.add(new BarChartEntity("暖通组", new Float[]{890f, 456f, 123f, 45f, 99f}));
-        datas1.add(new BarChartEntity("宗秀组", new Float[]{456f, 741f, 654f, 45f, 99f}));
-        datas1.add(new BarChartEntity("粽球组", new Float[]{258f, 951f, 12f, 45f, 99f}));
-        datas1.add(new BarChartEntity("弱点组", new Float[]{163f, 163f, 163f, 163f, 163f}));
+        datas1.add(new BarChartEntity("2013", new Float[]{1003f, 500f, 600f, 45f, 99f}));
+        datas1.add(new BarChartEntity("2014", new Float[]{1003f, 500f, 600f, 45f, 99f}));
+        datas1.add(new BarChartEntity("2015", new Float[]{890f, 456f, 123f, 45f, 99f}));
+        datas1.add(new BarChartEntity("2016", new Float[]{456f, 741f, 654f, 45f, 99f}));
+        datas1.add(new BarChartEntity("2017", new Float[]{258f, 951f, 12f, 45f, 99f}));
+        datas1.add(new BarChartEntity("2018", new Float[]{163f, 163f, 163f, 163f, 163f}));
+        datas1.add(new BarChartEntity("2019", new Float[]{163f, 163f, 163f, 163f, 163f}));
         barChartNew2.setData(datas1,
                 new int[]{
                         Color.parseColor("#6FC5F4"),
@@ -80,13 +81,13 @@ public class BarChartActivity extends AppCompatActivity {
                 }
                 ,"分组","数量");
 
-        barChartNew2.setOnItemBarClickListener(new BarChartNew.OnItemBarClickListener() {
-            @Override
-            public void onClick(int position) {
-                Toast.makeText(BarChartActivity.this,"点击了："+position,Toast.LENGTH_SHORT).show();
-            }
-        });
-
+//        barChartNew2.setOnItemBarClickListener(new BarChartNew.OnItemBarClickListener() {
+//            @Override
+//            public void onClick(int position) {
+//                Toast.makeText(BarChartActivity.this,"点击了："+position,Toast.LENGTH_SHORT).show();
+//            }
+//        });
+        barChartNew2.setClickable(false);
         barChartNew2.startAnimation();
 
         //Y轴正负都有
