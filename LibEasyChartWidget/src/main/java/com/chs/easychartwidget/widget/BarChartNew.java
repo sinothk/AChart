@@ -50,7 +50,7 @@ public class BarChartNew extends View {
     private int rightMargin;
     private int leftMargin;
     /**
-     * 画笔 轴 刻度 柱子 点击后的柱子 单位
+     * 画笔        轴           刻度       柱子      点击后的柱子    单位
      */
     private Paint axisPaint, textPaint, barPaint, borderPaint, unitPaint;
     private List<BarChartEntity> mData;//数据集合
@@ -133,6 +133,37 @@ public class BarChartNew extends View {
         this.mOnItemBarClickListener = onRangeBarClickListener;
     }
 
+    public void setColor(String textColor, String unitColor) {
+        try {
+            textPaint.setColor(Color.parseColor(textColor));
+            unitPaint.setColor(Color.parseColor(unitColor));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void setColor(String textColor, String unitColor, String lineColor) {
+        try {
+            textPaint.setColor(Color.parseColor(textColor));
+            unitPaint.setColor(Color.parseColor(unitColor));
+            axisPaint.setColor(Color.parseColor(lineColor));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void setColor(String textColor, String unitColor, String axisColor, String barColor, String borderColor) {
+        try {
+            axisPaint.setColor(Color.parseColor(axisColor));
+            textPaint.setColor(Color.parseColor(textColor));
+            barPaint.setColor(Color.parseColor(barColor));
+            borderPaint.setColor(Color.parseColor(borderColor));
+            unitPaint.setColor(Color.parseColor(unitColor));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
     public interface OnItemBarClickListener {
         void onClick(int position);
     }
@@ -166,12 +197,13 @@ public class BarChartNew extends View {
         mGestureListener = new GestureDetector(context, new RangeBarOnGestureListener());
 
         axisPaint = new Paint();
-        axisPaint.setColor(ContextCompat.getColor(mContext, R.color.axis));
+        axisPaint.setColor(ContextCompat.getColor(mContext, R.color.axis)); //Color.parseColor("#989898")
         axisPaint.setStrokeWidth(1);
 
         textPaint = new Paint();
         textPaint.setAntiAlias(true);
         textPaint.setTextSize(DensityUtil.dip2px(getContext(), 10));
+        textPaint.setColor(Color.parseColor("#989898"));
 
         unitPaint = new Paint();
         unitPaint.setAntiAlias(true);
@@ -275,6 +307,7 @@ public class BarChartNew extends View {
 
     private void drawUnit(Canvas canvas) {
         String textLength = maxYDivisionValue % 5 == 0 ? String.valueOf((int) maxYDivisionValue) : String.valueOf(maxYDivisionValue);
+
         canvas.drawText(unitY, mStartX - textPaint.measureText(textLength), topMargin / 2, unitPaint);
         canvas.drawText(unitX, mTotalWidth - rightMargin - paddingRight + 10, mTotalHeight - bottomMargin / 2, unitPaint);
     }

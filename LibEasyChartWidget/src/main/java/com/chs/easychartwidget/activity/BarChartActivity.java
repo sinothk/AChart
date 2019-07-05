@@ -29,35 +29,34 @@ public class BarChartActivity extends AppCompatActivity {
         //老柱状图
         BarChart barChart = (BarChart) findViewById(R.id.chart);
         List<ChartEntity> data = new ArrayList<>();
-        for(int i =0;i<20;i++){
-            data.add(new ChartEntity(String.valueOf(i), (float) (Math.random()*1000)));
+        for (int i = 0; i < 20; i++) {
+            data.add(new ChartEntity(String.valueOf(i), (float) (Math.random() * 1000)));
         }
         barChart.setData(data);
         barChart.setOnItemBarClickListener(new BarChart.OnItemBarClickListener() {
             @Override
             public void onClick(int position) {
-                Toast.makeText(BarChartActivity.this,"点击了："+position,Toast.LENGTH_SHORT).show();
+                Toast.makeText(BarChartActivity.this, "点击了：" + position, Toast.LENGTH_SHORT).show();
             }
         });
         barChart.startAnimation(2000);
-
 
 
         //新柱状图
         BarChartNew barChartNew1 = (BarChartNew) findViewById(R.id.chart_new_1);
 
         List<BarChartEntity> datas = new ArrayList<>();
-        datas.add(new BarChartEntity("特种设备组", new Float[]{(float) (Math.random()*1000)}));
-        for(int i =0;i<20;i++){
-            datas.add(new BarChartEntity("第"+String.valueOf(i)+"项", new Float[]{(float) (Math.random()*1000)}));
+        datas.add(new BarChartEntity("特种设备组", new Float[]{(float) (Math.random() * 1000)}));
+        for (int i = 0; i < 20; i++) {
+            datas.add(new BarChartEntity("第" + String.valueOf(i) + "项", new Float[]{(float) (Math.random() * 1000)}));
         }
         barChartNew1.setOnItemBarClickListener(new BarChartNew.OnItemBarClickListener() {
             @Override
             public void onClick(int position) {
-                Toast.makeText(BarChartActivity.this,"点击了："+position,Toast.LENGTH_SHORT).show();
+                Toast.makeText(BarChartActivity.this, "点击了：" + position, Toast.LENGTH_SHORT).show();
             }
         });
-        barChartNew1.setData(datas,new int[]{Color.parseColor("#6FC5F4")},"分组","数量");
+        barChartNew1.setData(datas, new int[]{Color.parseColor("#6FC5F4")}, "分组", "数量");
         barChartNew1.startAnimation();
 
         //新柱状图多种颜色
@@ -79,7 +78,14 @@ public class BarChartActivity extends AppCompatActivity {
                         Color.parseColor("#Ff0084"),
                         Color.parseColor("#F23E84")
                 }
-                ,"分组","数量");
+                , "分组", "数量");
+
+        barChartNew2.setColor("#78DA9F", "#F23E84", "#6FC5F4");
+//        barChartNew2.setColor("#6FC5F4", "#78DA9F", "#FCAE84", "#Ff0084", "#F23E84");
+        /**
+         //         * 画笔 轴 刻度 柱子 点击后的柱子 单位
+         //         */
+//        private Paint axisPaint, textPaint, barPaint, borderPaint, unitPaint;
 
 //        barChartNew2.setOnItemBarClickListener(new BarChartNew.OnItemBarClickListener() {
 //            @Override
@@ -99,15 +105,15 @@ public class BarChartActivity extends AppCompatActivity {
         BarChart2 barChart = findViewById(R.id.chart_new_3);
         List<BarChartEntity> data = new ArrayList<>();
 //        data.add(new BarChartEntity("特种设备组", new Float[]{(float) (Math.random()*1000)}));
-        for(int i =0;i<20;i++){
+        for (int i = 0; i < 20; i++) {
 //            data.add(new BarChartEntity("第"+String.valueOf(i)+"项", new Float[]{(float) (Math.random()*-1000)}));
-            if(i%2==0){
-                data.add(new BarChartEntity("第"+String.valueOf(i)+"项", new Float[]{(float) (Math.random()*1000)}));
-            }else {
-                data.add(new BarChartEntity("第"+String.valueOf(i)+"项", new Float[]{(float) (Math.random()*-1000)}));
+            if (i % 2 == 0) {
+                data.add(new BarChartEntity("第" + String.valueOf(i) + "项", new Float[]{(float) (Math.random() * 1000)}));
+            } else {
+                data.add(new BarChartEntity("第" + String.valueOf(i) + "项", new Float[]{(float) (Math.random() * -1000)}));
             }
         }
-        barChart.setData(data,new int[]{Color.parseColor("#6FC5F4")},"分组","数量",500,-400);
+        barChart.setData(data, new int[]{Color.parseColor("#6FC5F4")}, "分组", "数量", 500, -400);
         barChart.startAnimation();
     }
 }
